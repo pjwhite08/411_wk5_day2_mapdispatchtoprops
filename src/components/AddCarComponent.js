@@ -8,6 +8,9 @@ import {
 } from '@material-ui/core'
 
 class AddCar extends Component {
+    //why doesn't this have super with props?
+    //why is this so different from the video?
+    //I don't understand the differences, therefore I can't really code along
     state = {
         open: false,
         name: '',
@@ -25,13 +28,18 @@ class AddCar extends Component {
     }
     //How to do this with functional programming?
     handleSubmit = (e) => {
+        // console.log("props in handleSubmit: ", props)
         e.preventDefault()
         const payload = { ...this.state }
         payload.id = this.props.carTotal + 1
         delete payload.open
         console.log("THE CAR", payload)
-        // add this.props.addCar function here
+        console.log("this.props in handleSubmit: ", this.props)
+         // add this.props.addCar function here
         // also add this.setState to close the dialog
+        this.props.addCar(payload)
+        this.setState({ open: false })
+       
     }
 
     componentDidUpdate = (prevProps, prevState) => {
@@ -44,7 +52,7 @@ class AddCar extends Component {
             })
         }
     }
-
+    //would it be worthwhile to utilize code snippets?
     render() {
         return (
             <Fragment>

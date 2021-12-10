@@ -9,9 +9,10 @@ import {
 } from '@material-ui/core'
 import DeleteIcon from '@material-ui/icons/Delete'
 
-import Chart from './Chart'
-import Total from './Total'
-import AddCar from './AddCar'
+import Chart from '../containers/Chart'
+import Total from '../containers/Total'
+import AddCar from '../containers/AddCarContainer'
+
  
 const Dashboard = (props) => {
     return (
@@ -45,7 +46,12 @@ const Dashboard = (props) => {
                         <TableCell>{car["horsepower"]}</TableCell>
                         <TableCell>
                             <DeleteIcon
-                                // add onClick method here
+                                onClick={() => props.removeCar(idx)}
+                            //why does this remove the first car no matter which one you click
+                            // onClick={props.removeCar}
+                            //and if I do
+                                //onClick={props.removeCar(idx)}
+                                //then none of the cars ever shows up, even without clicking
                                 className="icon text-red" />
                         </TableCell>
                     </TableRow>
