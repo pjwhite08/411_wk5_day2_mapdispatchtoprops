@@ -11,7 +11,7 @@ const cars = (state = [], action) => {
         case "ADD_CAR" : 
             //must return state
             //...state is a spread operator
-            return [action.value, ...state]
+            return [ ...state, action.value]
             //now I'm guessing 
             //that we're going to add a third parameter (No, we have the action)
             //that will be the value (CHECK!)
